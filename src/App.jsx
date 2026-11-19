@@ -1,29 +1,36 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext.jsx';
-import { FavoritesProvider } from './context/FavoritesContext.jsx';
 import SiteLayout from './components/SiteLayout.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
-import HomePage from './pages/HomePage.jsx';
-import RecipesPage from './pages/RecipesPage.jsx';
-import FavoritesPage from './pages/FavoritesPage.jsx';
+import LoginPage from './pages/LoginPage.jsx';
+import ProductsPage from './pages/ProductsPage.jsx';
+import ProductDetailPage from './pages/ProductDetailPage.jsx';
+import OrdersPage from './pages/OrdersPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <FavoritesProvider>
-          <Routes>
+        <Routes>
+          {/* Ruta pública de inicio de sesión */}
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* Redirección de la raíz al catálogo (si no hay sesión, ProtectedRoute envía a /login) */}
+          <Route path="/" element={<Navigate to="/productos" replace />} />
+
+          {/* Rutas protegidas con Navbar */}
+          <Route element={<ProtectedRoute />}>
             <Route element={<SiteLayout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route element={<ProtectedRoute />}>
-                <Route path="/recetas" element={<RecipesPage />} />
-                <Route path="/favoritos" element={<FavoritesPage />} />
-              </Route>
-              <Route path="*" element={<NotFoundPage />} />
+              <Route path="/productos" element={<ProductsPage />} />
+              <Route path="/productos/:id" element={<ProductDetailPage />} />
+              <Route path="/pedidos" element={<OrdersPage />} />
             </Route>
-          </Routes>
-        </FavoritesProvider>
+          </Route>
+
+          {/* Ruta para páginas inexistentes */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </AuthProvider>
     </BrowserRouter>
   );

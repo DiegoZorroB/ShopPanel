@@ -1,14 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
-import LoginModal from './LoginModal.jsx';
 
 export default function SiteLayout() {
   return (
-    <>
+    <div className="d-flex flex-column min-vh-100 bg-light">
       <Navbar />
-      <main><Outlet /></main>
-      <footer className="site-footer"><div className="container d-flex justify-content-between flex-wrap gap-2"><span>La Mesa · Recetario</span><span>Una práctica de interfaces con React</span></div></footer>
-      <LoginModal />
-    </>
+      <main className="flex-grow-1 py-4">
+        <Outlet />
+      </main>
+    </div>
   );
 }
