@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext.jsx';
+import { OrdersProvider } from './context/OrdersContext.jsx';
 import SiteLayout from './components/SiteLayout.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import LoginPage from './pages/LoginPage.jsx';
@@ -12,25 +13,27 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Routes>
-          {/* Ruta pública de inicio de sesión */}
-          <Route path="/login" element={<LoginPage />} />
+        <OrdersProvider>
+          <Routes>
+            {/* Ruta pública de inicio de sesión */}
+            <Route path="/login" element={<LoginPage />} />
 
-          {/* Redirección de la raíz al catálogo (si no hay sesión, ProtectedRoute envía a /login) */}
-          <Route path="/" element={<Navigate to="/productos" replace />} />
+            {/* Redirección de la raíz al catálogo */}
+            <Route path="/" element={<Navigate to="/productos" replace />} />
 
-          {/* Rutas protegidas con Navbar */}
-          <Route element={<ProtectedRoute />}>
-            <Route element={<SiteLayout />}>
-              <Route path="/productos" element={<ProductsPage />} />
-              <Route path="/productos/:id" element={<ProductDetailPage />} />
-              <Route path="/pedidos" element={<OrdersPage />} />
+            {/* Rutas protegidas con Navbar */}
+            <Route element={<ProtectedRoute />}>
+              <Route element={<SiteLayout />}>
+                <Route path="/productos" element={<ProductsPage />} />
+                <Route path="/productos/:id" element={<ProductDetailPage />} />
+                <Route path="/pedidos" element={<OrdersPage />} />
+              </Route>
             </Route>
-          </Route>
 
-          {/* Ruta para páginas inexistentes */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+            {/* Ruta para páginas inexistentes */}
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </OrdersProvider>
       </AuthProvider>
     </BrowserRouter>
   );
