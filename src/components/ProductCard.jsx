@@ -36,7 +36,7 @@ export default function ProductCard({ product, onOrderSuccess }) {
 
           <div className="d-flex gap-2">
             <Link
-              to={`/products/${product.id}`}
+              to={`/productos/${product.id}`}
               className="btn btn-sp-outline btn-sm flex-fill py-2"
             >
               Ver detalle

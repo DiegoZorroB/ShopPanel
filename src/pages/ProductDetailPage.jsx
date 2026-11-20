@@ -33,7 +33,7 @@ export default function ProductDetailPage() {
   const handleAddOrder = () => {
     if (!product) return;
     addOrder(product);
-    navigate('/orders');
+    navigate('/pedidos');
   };
 
   if (loading) {
@@ -49,7 +49,7 @@ export default function ProductDetailPage() {
     return (
       <div className="container py-5">
         <div className="alert alert-danger">{error || 'Producto no encontrado'}</div>
-        <Link to="/products" className="btn btn-sp-outline">
+        <Link to="/productos" className="btn btn-sp-outline">
           ← Volver a productos
         </Link>
       </div>
@@ -60,7 +60,7 @@ export default function ProductDetailPage() {
     <section className="container py-4 py-md-5">
       <div className="mb-4">
         <Link
-          to="/products"
+          to="/productos"
           className="text-decoration-none text-muted fw-medium d-inline-flex align-items-center gap-1"
         >
           ← Volver a productos

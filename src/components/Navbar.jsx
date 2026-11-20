@@ -1,9 +1,11 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext.jsx";
+import { useOrders } from "../context/OrdersContext.jsx";
 import "./Navbar.css";
 
-export default function Navbar({ ordersCount = 0 }) {
+export default function Navbar() {
   const { user, signOut } = useAuth();
+  const { activeOrdersCount: ordersCount } = useOrders();
   const navigate = useNavigate();
 
   const displayName = user?.email ? user.email.split("@")[0] : "Usuario";

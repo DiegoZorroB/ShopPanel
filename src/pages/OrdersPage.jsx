@@ -34,7 +34,7 @@ export default function OrdersPage() {
           <p className="text-muted mb-4">
             Explora el catálogo y haz tu primer pedido con un clic.
           </p>
-          <Link to="/products" className="btn btn-sp-primary px-4 py-2">
+          <Link to="/productos" className="btn btn-sp-primary px-4 py-2">
             Ir al catálogo
           </Link>
         </div>
