@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getProductById } from '../services/productService';
 import { useOrders } from '../context/OrdersContext';
+import './products.css';
 
 export default function ProductDetailPage() {
   const { id } = useParams();

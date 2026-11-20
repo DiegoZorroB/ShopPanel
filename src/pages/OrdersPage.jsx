@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useOrders } from '../context/OrdersContext';
+import './products.css';
 
 const ORDER_STATUSES = ['Pendiente', 'Confirmado', 'Enviado', 'Cancelado'];
 

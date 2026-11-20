@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getProductsFromCarts } from '../services/productService';
 import ProductCard from '../components/ProductCard';
+import './products.css';
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);

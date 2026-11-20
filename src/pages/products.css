@@ -1,0 +1,175 @@
+:root {
+  --sp-primary: #4f46e5;
+  --sp-primary-hover: #4338ca;
+  --sp-bg: #f8fafc;
+  --sp-border: #e2e8f0;
+  --sp-text-muted: #64748b;
+}
+
+body {
+  background-color: var(--sp-bg);
+  color: #0f172a;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Botón morado principal */
+.btn-sp-primary {
+  background-color: var(--sp-primary);
+  border-color: var(--sp-primary);
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-sp-primary:hover,
+.btn-sp-primary:focus {
+  background-color: var(--sp-primary-hover);
+  border-color: var(--sp-primary-hover);
+  color: #ffffff;
+}
+
+/* Botón secundario "Ver detalle" */
+.btn-sp-outline {
+  background-color: #ffffff;
+  border: 1px solid var(--sp-border);
+  color: #334155;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-sp-outline:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Tarjetas de catálogo */
+.product-card {
+  border: 1px solid var(--sp-border);
+  border-radius: 1rem;
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+}
+
+.product-card-img-wrapper {
+  height: 190px;
+  background-color: #f1f5f9;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.product-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-description-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6rem;
+}
+
+/* Barra de búsqueda */
+.search-input-group .form-control {
+  border-radius: 0.5rem;
+  border: 1px solid var(--sp-border);
+  padding-left: 2.4rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  z-index: 5;
+}
+
+/* Badges de estado en Mis Pedidos */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Pendiente (Amarillo/Ámbar) */
+.status-pendiente {
+  background-color: #fffbeb;
+  color: #d97706;
+  border-color: #fde68a;
+}
+.status-pendiente .status-dot {
+  background-color: #f59e0b;
+}
+
+/* Confirmado (Azul) */
+.status-confirmado {
+  background-color: #eff6ff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+}
+.status-confirmado .status-dot {
+  background-color: #3b82f6;
+}
+
+/* Enviado (Verde) */
+.status-enviado {
+  background-color: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+.status-enviado .status-dot {
+  background-color: #10b981;
+}
+
+/* Cancelado (Rojo) */
+.status-cancelado {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+.status-cancelado .status-dot {
+  background-color: #ef4444;
+}
+
+/* Enlace activo en Navbar */
+.sp-nav-link {
+  color: #64748b;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 1.1rem 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease;
+}
+
+.sp-nav-link:hover {
+  color: var(--sp-primary);
+}
+
+.sp-nav-link.active {
+  color: var(--sp-primary);
+  border-bottom-color: var(--sp-primary);
+}
