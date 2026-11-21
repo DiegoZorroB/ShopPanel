@@ -1,4 +1,4 @@
-# La Mesa — Recetario
+# ShopPanel — Tienda Online
 
  conexión a Supabase, la consulta a la API y la persistencia de favoritos.
 
